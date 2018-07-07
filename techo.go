@@ -51,8 +51,10 @@ func (c *Client) request(method string, url string, headers http.Header, body in
 		req.Header[hn] = hv
 	}
 
-	for hn, hv := range headers {
-		req.Header[hn] = hv
+	if headers != nil {
+		for hn, hv := range headers {
+			req.Header[hn] = hv
+		}
 	}
 
 	c.e.ServeHTTP(rec, req)
