@@ -75,6 +75,7 @@ func (s *Suite) SetupSuite() {
 	s.client = techo.New(e, json.Marshal)
 	s.header = make(http.Header)
 	s.header.Set(authrorization, token)
+	s.header.Set("Content-Type", "application/json")
 	s.exampleV = Body{Message: "Test"}
 	s.exampleB, _ = json.Marshal(&s.exampleV)
 }

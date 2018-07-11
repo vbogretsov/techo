@@ -44,7 +44,7 @@ func (c *Client) request(method string, url string, headers http.Header, body in
 		br = bytes.NewReader(b)
 	}
 
-	req := httptest.NewRequest(echo.GET, url, br)
+	req := httptest.NewRequest(method, url, br)
 	rec := httptest.NewRecorder()
 
 	for hn, hv := range c.Header {
